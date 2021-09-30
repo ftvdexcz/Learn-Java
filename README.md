@@ -17,6 +17,67 @@ Quy tắc đặt tên biến giống trong C: chỉ gồm chữ cái, chữ số
 </ul>
 - Kiểu dữ liệu đối tượng 
 
+<h2>Pass by value and Pass by reference</h2>
+- Các kiểu dữ liệu nguyên thủy đều là tham trị: tạo ra một bản sao và gán giá trị
+- Kiểu dữ liệu object là tham chiếu: gán 2 object cho nhau thì thay đổi object này cũng ảnh hưởng tới object kia 
+
+* Cần lưu ý giữa việc truyền giá trị vào hàm làm thay đổi giá trị đó (tham trị) và thay đổi thuộc tính class (tham chiếu)
+Public class Foo {
+    int value = 10;
+
+    Foo(){};
+    // truyền value vào và chỉ thay đổi value trong hàm (không thay đổi gì bên ngoài => tham trị. Cái này giống C) 
+    void change(int value) {
+        value += 10;
+    }
+ 
+    public static void main(String args[]) {
+        Foo obj = new Foo();
+ 
+        System.out.println("Trước khi thay đổi: " + obj.value);
+        obj.change(10);
+        System.out.println("Sau khi thay đổi: " + obj.value);
+    }
+}
+//Trước khi thay đổi: 10
+//Sau khi thay đổi: 10
+<hr>
+public class Person {
+    private String Name;
+    private int Age;
+
+    public Person(String name) {
+        this.Name = name;
+    }
+ 
+    // từ khóa this.Age là thay đổi thuộc tính của đối tượng hiện tại
+    public void setAge(int age) {
+        this.Age = age;
+    }
+
+    public int getAge() {
+        return this.Age;
+    }
+
+}
+public class MyClass {
+    public static void main(String[] args) {
+        Person person = new Person("John");
+        person.setAge(20);
+        celebrateBirthday(j);
+
+        System.out.println(person.getAge());
+    }
+
+    static void celebrateBirthday(Person p) {
+        p.setAge(p.getAge() + 1);
+    }
+}
+//Output: 21
+
+
+
+
 <h2>Type Casting</h2>
 - byte->short->int->long->float->double chuyển đổi ngầm định (implicit)
 - double->float->long->int->short->byte chuyển đổi tường minh (explicit) 
