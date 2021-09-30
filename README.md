@@ -41,7 +41,6 @@ public class Foo {
 }
 ```
 
-<hr>
 ```
 public class Person {
     private String Name;
