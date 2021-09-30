@@ -23,7 +23,7 @@ Quy tắc đặt tên biến giống trong C: chỉ gồm chữ cái, chữ số
 
 * Cần lưu ý giữa việc truyền giá trị vào hàm làm thay đổi giá trị đó (tham trị) và thay đổi thuộc tính class (tham chiếu)
 
-`public class Foo {
+```public class Foo {
     int value = 10;
     Foo(){
     };
@@ -37,10 +37,11 @@ Quy tắc đặt tên biến giống trong C: chỉ gồm chữ cái, chữ số
         obj.change(10);
         System.out.println("Sau khi thay đổi: " + obj.value); // 10
     }
-}`
+}
+```
 
 <hr>
-`public class Person {
+```public class Person {
     private String Name;
     private int Age;
     public Person(String name) {
@@ -64,7 +65,8 @@ public class MyClass {
     static void celebrateBirthday(Person p) {
         p.setAge(p.getAge() + 1);
     }
-}`
+}
+```
 
 <h2>Type Casting</h2>
 - byte->short->int->long->float->double chuyển đổi ngầm định (implicit)
