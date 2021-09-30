@@ -18,8 +18,7 @@ Quy tắc đặt tên biến giống trong C: chỉ gồm chữ cái, chữ số
 - Kiểu dữ liệu đối tượng 
 
 <h2>Pass by value and Pass by reference</h2>
-- Các kiểu dữ liệu nguyên thủy đều là tham trị: tạo ra một bản sao và gán giá trị
-- Kiểu dữ liệu object là tham chiếu: gán 2 object cho nhau thì thay đổi object này cũng ảnh hưởng tới object kia 
+Tham chiếu và tham trị
 
 * Cần lưu ý giữa việc truyền giá trị vào hàm làm thay đổi giá trị đó (tham trị) và thay đổi thuộc tính class (tham chiếu)
 
@@ -67,6 +66,24 @@ public class MyClass {
         p.setAge(p.getAge() + 1);
     }
 }
+```
+
+<h2>Assign Variable</h2>
+Gán kiểu dữ liệu nguyên thủy: tạo ra bản sao 
+```
+int x = 7;
+int y = x;
+y = 5; // y = x = 5
+System.out.println(x); // 5
+System.out.println(y); // 5
+```
+
+Gán kiểu dữ liệu đối tượng: gán 2 object cho nhau thì thay đổi object này cũng ảnh hưởng tới object kia 
+```
+int x[] = {1,2,3,4}
+int y[] = x; 
+x[0] = 11; // y = x = {11,2,3,4} do gán 2 đối tượng thì thay đổi x cũng làm thay đổi y
+x = new int[2]; // x = {0,0} , y = {11,2,3,4} do x được cấp phát mới nên không ảnh hưởng đến y nữa 
 ```
 
 <h2>Type Casting</h2>
