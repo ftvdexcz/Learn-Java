@@ -183,8 +183,9 @@ if(check)
   <li>Cho phép kế thừa những thuộc tính và phương thức từ 1 lớp (lớp cha và lớp con)</li>
   <li>Thuộc tính để protected cho phép lớp con có thể truy cập đến thuộc tính lớp cha</li>
   <li>Từ khóa super cho phép truy cập phương thức lớp cha</li>
-  <li>Upcasting: Biến lớp cha tham chiếu tới biên lớp con</li>
-  <li>Downcasting: Biến lớp con tham chiếu tới biên lớp cha</li>
+  <li>Upcasting: Biến lớp cha tham chiếu tới biến lớp con, lưu ý: Với cơ chế upcasting, đối tượng không thể gọi phương thức của riêng lớp con. Nếu 1
+  phương thức bị ghi đè thì khi gọi nó sẽ gọi đến phương thức ở lớp con</li>
+  <li>Downcasting: Biến lớp con tham chiếu tới biến lớp cha để biến đó có thể truy cập phương thức lớp con mà không cần tạo ra đối tượng mới bằng new class()</li>
 </ul>
 
 - Tính đa hình 
