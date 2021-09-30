@@ -29,7 +29,7 @@ public class Foo {
     };
     // truyền value vào và chỉ thay đổi value trong hàm (không thay đổi gì bên ngoài => tham trị. Cái này giống C) 
     void change(int value) {
-        value += 10;
+        value += 10; // nếu ở đây thay bằng this.value thì hiểu là thuộc tính đối tượng => value thay đổi giá trị, ví dụ dưới sẽ thấy) 
     }
     public static void main(String args[]) {
         Foo obj = new Foo();
