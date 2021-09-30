@@ -214,6 +214,7 @@ String methods: https://www.tutorialspoint.com/java/java_strings.html
 </table>
 
 VD: Kiểm tra mã sv PTIT 
+```
 import java.util.regex.Pattern;
 
 input = "B19DCCN386";
@@ -222,7 +223,8 @@ String regex = "^[Bb]{1}\\d{2}[A-Za-z]{4}\\d{3}$";
 Pattern pattern = Pattern.compile(regex);
 Matcher check = = patter.matcher(input);
 if(check)
-  System.out.println("True"); 
+  System.out.println("True");
+```  
   
 <h2>Một số class hay sử dụng trong Java</h2>
 <ol>
