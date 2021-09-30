@@ -70,6 +70,7 @@ public class MyClass {
 
 <h2>Assign Variable</h2>
 Gán kiểu dữ liệu nguyên thủy: tạo ra bản sao 
+
 ```
 int x = 7;
 int y = x;
