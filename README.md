@@ -293,6 +293,7 @@ all > subclass-outside package > same package > class only
 </ul>
 
 VD: kết hợp static và final định nghĩa 1 hằng số
+```
 static final double PI = 3.1415;
-
+```
 
