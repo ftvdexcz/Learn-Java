@@ -23,7 +23,8 @@ Quy tắc đặt tên biến giống trong C: chỉ gồm chữ cái, chữ số
 
 * Cần lưu ý giữa việc truyền giá trị vào hàm làm thay đổi giá trị đó (tham trị) và thay đổi thuộc tính class (tham chiếu)
 
-```public class Foo {
+```
+public class Foo {
     int value = 10;
     Foo(){
     };
@@ -41,7 +42,8 @@ Quy tắc đặt tên biến giống trong C: chỉ gồm chữ cái, chữ số
 ```
 
 <hr>
-```public class Person {
+```
+public class Person {
     private String Name;
     private int Age;
     public Person(String name) {
