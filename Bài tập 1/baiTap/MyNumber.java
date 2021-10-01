@@ -88,7 +88,6 @@ public class MyNumber {
             }
         }
         System.out.println(number);
-      
     }
 
     // 1.10: Ước số nguyên tố của n
