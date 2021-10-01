@@ -26,8 +26,8 @@ public class MyNumber {
     }
 
     // 1.3: Tích 1 đến n
-    public int tich() {
-        int mul = 1;
+    public long tich() {
+        long mul = 1;
         for (int i = 2; i <= number; i++) {
             mul *= i;
         }
@@ -83,11 +83,12 @@ public class MyNumber {
             if (number % i == 0) {
                 System.out.print(i + " ");
                 if (i * i != number) {
-                    System.out.println((number / i) + " ");
+                    System.out.print((number / i) + " ");
                 }
             }
         }
-        System.out.println();
+        System.out.println(number);
+      
     }
 
     // 1.10: Ước số nguyên tố của n
@@ -113,10 +114,11 @@ public class MyNumber {
                     System.out.print(i + " ");
                 }
                 if (i * i != number && isPrime[number / i] == 1) {
-                    System.out.println((number / i) + " ");
+                    System.out.print((number / i) + " ");
                 }
             }
         }
+        if(isPrime[number]==1) System.out.print(number);
         System.out.println();
     }
 
@@ -198,7 +200,10 @@ public class MyNumber {
         Arrays.fill(x, 0);
         System.out.println("Các xâu nhị phân độ dài " + number + " là");
         while (!isFinal(x)) {
-            System.out.println(Arrays.toString(x));
+            for (int j = 1; j <= number; j++) {
+                System.out.print(x[j]);
+            }
+            System.out.println();
             int i = number;
             while (x[i] == 1) {
                 x[i] = 0;
@@ -206,7 +211,10 @@ public class MyNumber {
             }
             x[i] = 1;
         }
-        System.out.println(Arrays.toString(x));
+        for (int j = 1; j <= number; j++) {
+            System.out.print(x[j]);
+        }
+        System.out.println();
     }
 
     // 1.15: Hoán vị độ dài n 
@@ -226,9 +234,12 @@ public class MyNumber {
         }
         System.out.println("Các hoán vị từ 1 đến n");
         while (!isFinalPermutation(x)) {
-            System.out.println(Arrays.toString(x));
+            for (int j = 1; j <= number; j++) {
+                System.out.print(x[j]);
+            }
+            System.out.println();
             int j = number - 1;
-            while (x[j] > x[j] + 1) {
+            while (x[j] > x[j + 1]) {
                 j--;
             }
             int k = number, tmp;
@@ -248,7 +259,10 @@ public class MyNumber {
                 r--;
             }
         }
-        System.out.println(Arrays.toString(x));
+        for (int j = 1; j <= number; j++) {
+            System.out.print(x[j]);
+        }
+        System.out.println();
     }
 
     // 1.16: Viết ra các số nguyên tố có n chữ số 
@@ -286,6 +300,7 @@ public class MyNumber {
 
     // 2.3: Phân tích n thành thừa số nguyên tố 
     public void primeFactor() {
+        System.out.print(number + " = ");
         int n = number;
         while (n % 2 == 0) {
             System.out.print("2");
@@ -304,13 +319,41 @@ public class MyNumber {
                 }
             }
         }
-        if(n > 1) System.out.print(n);
+        if (n > 1) {
+            System.out.print(n);
+        }
         System.out.println();
     }
-    
+
     // 2.4: Kiểm tra có phải số thuận nghịch không 
-    public boolean isReversible(){
+    public boolean isReversible() {
         StringBuilder s = new StringBuilder(Integer.toString(number));
         return s.toString().equals(s.reverse().toString());
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public static void main(String[] args) {
+        MyNumber n = new MyNumber();
+        n.setNumber(28);
+        System.out.println(n.tong());
+        System.out.println(n.tich());
+        System.out.println(n.tongChan());
+        System.out.println(n.tongLe());
+        n.primeLessThanOrEqual();
+        n.uoc();
+        n.uocSoNguyenTo();
+//        System.out.println("Số fibo thứ n = " + n.nthFibo());
+        n.fiboLessThanN();
+        n.fiboPrimeLessThanN();
+//        n.xauNhiPhan();
+//        n.sinhHoanVi();
+//        n.nDigitPrime();
+//        n.nDigitReversible();
+        System.out.println("Tổng chữ số của n = " + n.sumOfDigit());
+        n.primeFactor();
+        System.out.println(n.isReversible());
     }
 }
