@@ -278,8 +278,8 @@ all > subclass-outside package > same package > class only
 <i> Lưu ý: lớp con phải có chế độ "mở" hơn lớp cha </i>
 
 <h2>final and static keyword</h2>
-final: 
 
+final: 
 <ul>
   <li>final class: không thể có lớp con (không cho kế thừa)</li>
   <li>final data: constant</li>
@@ -287,7 +287,6 @@ final:
 </ul> 
 
 static: 
-
 <ul>
   <li>static để chỉ có thể truy cập từ lớp, không của riêng đối tượng nào</li>
   <li>static method: chỉ có thể truy cập static data, không được truy cập biến của đối tượng </li>
