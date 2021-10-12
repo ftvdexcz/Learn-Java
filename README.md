@@ -283,9 +283,10 @@ all > subclass-outside package > same package > class only
   <li>final class: không thể có lớp con (không cho kế thừa)</li>
   <li>final data: constant</li>
   <li>final method: can't be overridden</li>
-</ul>
+</ul> 
 
 - static: 
+
 <ul>
   <li>static để chỉ có thể truy cập từ lớp, không của riêng đối tượng nào</li>
   <li>static method: chỉ có thể truy cập static data, không được truy cập biến của đối tượng </li>
