@@ -510,3 +510,172 @@ class Main {
 }
 ```
 
+<h2>Interface</h2>
+
+Giống với abstract class, ta không thể tạo một đối tượng interface (Giống)
+
+```
+<interface_name> obj = new <interface_name>(); // error 
+```
+
+interface chỉ chứa các abstract method (không có body), chỉ chứa biến đã được khai báo (với access public or default) hoặc hằng số (static final). Từ java8 có thể 
+khai báo thân hàm static (gọi bằng tên interface) hoặc default
+
+```
+public interface Language {
+  // initialized variable or const 
+  
+  // only abstract method 
+  
+  // static method / default method
+}
+```
+
+Một class có thể implements (cài đặt) 1 interface hoặc nhiều interface (==> interface cho phép đa kế thừa bằng từ khóa implements) 
+```
+// create an interface
+interface Language {
+  void getName(String name);
+}
+
+// class implements interface
+class ProgrammingLanguage implements Language {
+
+  // implementation of abstract method
+  public void getName(String name) {
+    System.out.println("Programming Language: " + name);
+  }
+}
+
+class Main {
+  public static void main(String[] args) {
+    ProgrammingLanguage language = new ProgrammingLanguage();
+    language.getName("Java");
+  }
+}
+```
+
+Tính kế thừa giữa các interface (interface chỉ có thể kế thừa hoặc đa kế thừa interface): chỉ có class hoặc abstract class kế thừa interface mới sử dụng từ khóa implements, còn lại dùng extends
+```
+interface A {
+   ...
+}
+interface B {
+   ... 
+}
+
+interface C extends A, B {
+   ...
+}
+```
+
+Interface có tác dụng ?
+
+<ul>
+  <li>Liệt kê chức năng (khung)</li>
+  <li>Giao diện bắt sự kiện đối tượng (k cần nhúng đối tượng vào)</li>
+  <li>1 lớp bị kế thừa 1 lớp (không cho phép đa kế thừa) => cần interface </li>
+  <li>Quản lý 2 - nhiều class không liên quan đến nhau </li>
+</ul>
+
+Bảng so sánh abstract class và interface 
+
+<table>
+<tr><th>Abstract class</th><th>Interface</th></tr>
+<tr><td>1) Abstract class can <strong>have abstract and non-abstract</strong> methods.</td><td>Interface can have <strong>only abstract</strong> methods. Since Java 8, it can have <strong>default and static methods</strong> also.</td></tr>
+<tr><td>2) Abstract class <strong>doesn't support multiple inheritance</strong>.</td><td>Interface <strong>supports multiple inheritance</strong>.</td></tr>
+<tr><td>3) Abstract class <strong>can have final, non-final, static and non-static variables</strong>.</td><td>Interface has <strong>only static and final variables</strong>.</td></tr>
+<tr><td>4) Abstract class <strong>can provide the implementation of interface</strong>.</td><td>Interface <strong>can't provide the implementation of abstract class</strong>.</td></tr>
+<tr><td>5) The <strong>abstract keyword</strong> is used to declare abstract class.</td><td>The <strong>interface keyword</strong> is used to declare interface.</td></tr>
+<tr><td>6) An <strong>abstract class</strong> can extend another Java class and implement multiple Java interfaces.</td><td>An <strong>interface</strong> can extend another Java interface only.</td></tr>
+<tr><td>7) An <strong>abstract class</strong> can be extended using keyword "extends".</td><td> An <strong>interface</strong> can be implemented using keyword "implements".</td></tr>
+<tr><td>8) A Java <strong>abstract class</strong> can have class members like private, protected, etc.</td><td>Members of a Java interface are public by default. </td></tr>
+<tr><td>9)<strong>Example:</strong><br> public abstract class Shape{<br>public abstract void draw();<br>}</td><td><strong>Example:</strong><br> public interface Drawable{<br>void draw();<br>}</td></tr>
+</table>
+
+<h2>Anonymous Class</h2>
+
+Anonymous class (lớp ẩn danh) là lớp được định nghĩa ngay trong lớp khác 
+
+```
+class outerClass {
+    // defining anonymous class
+    object1 = new Type(parameterList) {
+         // body of the anonymous class
+    };
+    // use anonymous class
+    object1.<method_name>();
+}
+```
+
+VD1: Kế thừa 1 class
+
+```
+class Polygon {
+   public void display() {
+      System.out.println("Inside the Polygon class");
+   }
+}
+
+class AnonymousDemo {
+   public void createClass() {
+
+      // creation of anonymous class extending class Polygon
+      Polygon p1 = new Polygon() {
+         public void display() {
+            System.out.println("Inside an anonymous class.");
+         }
+      };
+      p1.display();
+   }
+}
+
+class Main {
+   public static void main(String[] args) {
+       AnonymousDemo an = new AnonymousDemo();
+       an.createClass(); // output: Inside an anonymous class 
+   }
+}
+```
+
+VD2: Kế thừa 1 interface: Vì interface không thể tạo đối tượng bằng từ khóa new nên ta có thể dùng lớp ẩn danh để cài đặt ngay trong lớp khác
+
+```
+interface Polygon {
+   public void display();
+}
+
+class AnonymousDemo {
+   public void createClass() {
+
+      // anonymous class implementing interface
+      Polygon p1 = new Polygon() {
+         public void display() {
+            System.out.println("Inside an anonymous class.");
+         }
+      };
+      p1.display();
+   }
+}
+
+class Main {
+   public static void main(String[] args) {
+      AnonymousDemo an = new AnonymousDemo();
+      an.createClass(); // output: Inside an anonymous class 
+   }
+}
+```
+
+Anonymous class tạo đối tượng ngay khi yêu cầu => giúp code ngắn gọn 
+
+```
+Object = new Example() {
+   public void display() {
+      System.out.println("Anonymous class overrides the method display()."); // ghi đè display()
+   }
+};
+```
+
+
+
+
