@@ -479,3 +479,34 @@ class Main extends Language {
   }
 }
 ```
+
+Nếu abstract class có abstract method thì các class kế thừa nó phải cài đặt các abstract method này (override), nếu không thì class kế thừa đó vẫn là abstract class 
+
+```
+abstract class Animal {
+  abstract void makeSound();
+  
+  public void eat() {
+    System.out.println("I can eat.");
+  }
+}
+
+class Dog extends Animal {
+  // provide implementation of abstract method: if not Dog is abstract class 
+  public void makeSound() {
+    System.out.println("Bark bark");
+  }
+}
+
+class Main {
+  public static void main(String[] args) {
+
+    // create an object of Dog class
+    Dog d1 = new Dog();
+
+    d1.makeSound();
+    d1.eat(); // nếu trong class Dog có phương thức ghi đè eat() thì ở đây eat() trong Dog class được gọi (tính ghi đè trong kế thừa) 
+  }
+}
+```
+
