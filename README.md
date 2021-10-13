@@ -720,5 +720,12 @@ if (teacher instanceof Student){
 
  Tham khảo thêm bài viết về upcasting và downcasting: https://gpcoder.com/2406-co-che-upcasting-va-downcasting-trong-java/
 
+
+
 <i>Update: 14/10/2021 00:21</i>
+<hr>
+Tham khảo: 
+1. https://data-flair.training/blogs/java-tutorial/ <br>
+2. https://www.programiz.com/java-programming <br>
+3. https://www.javatpoint.com/java-tutorial <br>
 
