@@ -242,7 +242,8 @@ if(check)
 
 <h1>2. Java Object Oriented</h1>
 <h2>OOP Concept: 4 tính chất gồm đóng gói dữ liệu (encapsulation), kế thừa (inheritance), đa hình (polymorphism), trừu tượng (abstract)</h2>
-- Tính đóng gói dữ liệu: 
+
+Tính đóng gói dữ liệu: 
 <ul>
   <li>class = data (fields/properties) + methods</li>
   <li>Dữ liệu phải được che đi, chỉ cho truy cập bằng đối tượng của lớp: đặt private hoặc protected cho thuộc tính</li>
@@ -250,7 +251,7 @@ if(check)
   <li>Có 1 hàm tạo (constructor)</li>
 </ul>
 
-- Tính kế thừa:
+Tính kế thừa:
 <ul>
   <li>Cho phép kế thừa những thuộc tính và phương thức từ 1 lớp (lớp cha và lớp con)</li>
   <li>Thuộc tính để protected cho phép lớp con có thể truy cập đến thuộc tính lớp cha</li>
@@ -260,7 +261,7 @@ if(check)
   <li>Downcasting: Biến lớp con tham chiếu tới biến lớp cha để biến đó có thể truy cập phương thức lớp con mà không cần tạo ra đối tượng mới bằng new class()</li>
 </ul>
 
-- Tính đa hình 
+Tính đa hình:
 <ul>
   <li>Ghi đè (Overriding) Một phương thức lớp cha có thể bị ghi đè bởi 1 phương thức cùng tên trong lớp con</li>
   <li>Nạp chồng (Overloading) Có thể có nhiều phương thức giống tên nhau nhưng khác về đối số</li>
