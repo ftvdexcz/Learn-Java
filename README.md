@@ -300,6 +300,7 @@ static final double PI = 3.1415;
 ```
 
 <h2>Outer Inner class</h2>
+VD: 
 
 ```
 class CPU {
@@ -343,5 +344,133 @@ public class Main {
         System.out.println("Processor Cache = " + processor.getCache());
         System.out.println("Ram Clock speed = " + ram.getClockSpeed());
     }
+}
+```
+
+Access member của outer class ở trong inner class 
+
+```
+class Car {
+    String carName;
+    String carType;
+
+    // assign values using constructor
+    public Car(String name, String type) {
+        this.carName = name;
+        this.carType = type;
+    }
+
+    // private method
+    private String getCarName() {
+        return this.carName;
+    }
+
+// inner class
+    class Engine {
+        String engineType;
+        void setEngine() {
+
+           // Accessing the carType property of Car
+            if(Car.this.carType.equals("4WD")){
+
+                // Invoking method getCarName() of Car
+                if(Car.this.getCarName().equals("Crysler")) {
+                    this.engineType = "Smaller";
+                } else {
+                    this.engineType = "Bigger";
+                }
+
+            }else{
+                this.engineType = "Bigger";
+            }
+        }
+        String getEngineType(){
+            return this.engineType;
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+// create an object of the outer class Car
+        Car car1 = new Car("Mazda", "8WD");
+
+        // create an object of inner class using the outer class
+        Car.Engine engine = car1.new Engine();
+        engine.setEngine();
+        System.out.println("Engine Type for 8WD= " + engine.getEngineType());
+
+        Car car2 = new Car("Crysler", "4WD");
+        Car.Engine c2engine = car2.new Engine();
+        c2engine.setEngine();
+        System.out.println("Engine Type for 4WD = " + c2engine.getEngineType());
+    }
+}
+```
+
+<h2>Abstract Class</h2>
+- Không thể tạo đối tượng bằng từ khóa new với abstract class
+```
+// create an abstract class
+abstract class Language {
+  // fields and methods
+}
+...
+
+// try to create an object Language
+// throws an error
+Language obj = new Language(); 
+```
+
+- Giống class vì có thể chứa các methods (kể cả constructor) và giống interface vì có bao gồm abstract class (phải có từ khóa abstract, không được để trống giống interface)
+```
+abstract class Language {
+
+  // abstract method: method doesn't have it's body 
+  abstract void method1();
+
+  // regular method
+  void method2() {
+    System.out.println("This is regular method");
+  }
+}
+```
+
+- abstract method phải được chứa trong abstract class, không thì sẽ lỗi 
+```
+// error
+// class should be abstract
+class Language {
+
+  // abstract method
+  abstract void method1();
+}
+```
+
+- abstract class cũng cho phép extends (kế thừa) 1 class và ngược lại
+```
+// Ví dụ tạo 1 class kế thừa abstract class và tạo 1 đối tượng của lớp con (Các quy tắc vẫn giống như upcasting: nếu ở lớp con có phương thức 
+// ghi đè thì sẽ gọi đến phương thức ghi đè (display() nếu có)
+
+public abstract class Language {
+
+  // method of abstract class
+  public void display() {
+    System.out.println("This is Java Programming");
+  }
+}
+
+class Main extends Language {
+
+  public static void main(String[] args) {
+    
+    // create an object of Main
+    Main obj = new Main();
+
+    // access method of abstract class
+    // using object of Main class
+    obj.display();
+  }
 }
 ```
