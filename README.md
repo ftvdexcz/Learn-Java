@@ -724,7 +724,7 @@ if (teacher instanceof Student){
 
 <i>Update: 14/10/2021 00:21</i>
 <hr>
-Tham khảo: 
+Tham khảo: <br>
 1. https://data-flair.training/blogs/java-tutorial/ <br>
 2. https://www.programiz.com/java-programming <br>
 3. https://www.javatpoint.com/java-tutorial <br>
