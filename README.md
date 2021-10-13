@@ -410,7 +410,9 @@ public class Main {
 ```
 
 <h2>Abstract Class</h2>
-- Không thể tạo đối tượng bằng từ khóa new với abstract class
+
+ Không thể tạo đối tượng bằng từ khóa new với abstract class
+
 ```
 // create an abstract class
 abstract class Language {
@@ -423,7 +425,8 @@ abstract class Language {
 Language obj = new Language(); 
 ```
 
-- Giống class vì có thể chứa các methods (kể cả constructor) và giống interface vì có bao gồm abstract class (phải có từ khóa abstract, không được để trống giống interface)
+Giống class vì có thể chứa các methods (kể cả constructor) và giống interface vì có bao gồm abstract class (phải có từ khóa abstract, không được để trống giống interface)
+
 ```
 abstract class Language {
 
@@ -437,7 +440,8 @@ abstract class Language {
 }
 ```
 
-- abstract method phải được chứa trong abstract class, không thì sẽ lỗi 
+abstract method phải được chứa trong abstract class, không thì sẽ lỗi 
+
 ```
 // error
 // class should be abstract
@@ -448,7 +452,8 @@ class Language {
 }
 ```
 
-- abstract class cũng cho phép extends (kế thừa) 1 class và ngược lại
+abstract class cũng cho phép extends (kế thừa) 1 class và ngược lại
+
 ```
 // Ví dụ tạo 1 class kế thừa abstract class và tạo 1 đối tượng của lớp con (Các quy tắc vẫn giống như upcasting: nếu ở lớp con có phương thức 
 // ghi đè thì sẽ gọi đến phương thức ghi đè (display() nếu có)
