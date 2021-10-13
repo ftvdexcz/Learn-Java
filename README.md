@@ -1,5 +1,5 @@
 # <i>Learn Java</i>
-<h1>1. Java Tutorial</h1>
+<h1>1. Java Basic</h1>
 
 <h2>Variable</h2> 
 Quy tắc đặt tên biến giống trong C: chỉ gồm chữ cái, chữ số, _, $. Có phân biệt chữ hoa thường và không bắt đầu bằng số
@@ -299,3 +299,49 @@ VD: kết hợp static và final định nghĩa 1 hằng số
 static final double PI = 3.1415;
 ```
 
+<h2>Outer Inner class</h2>
+
+```
+class CPU {
+    double price;
+    // nested class
+    class Processor{
+
+        // members of nested class
+        double cores;
+        String manufacturer;
+
+        double getCache(){
+            return 4.3;
+        }
+    }
+
+    // nested protected class
+    protected class RAM{
+
+        // members of protected nested class
+        double memory;
+        String manufacturer;
+
+        double getClockSpeed(){
+            return 5.5;
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        // create object of Outer class CPU
+        CPU cpu = new CPU();
+
+       // create an object of inner class Processor using outer class
+        CPU.Processor processor = cpu.new Processor();
+
+        // create an object of inner class RAM using outer class CPU
+        CPU.RAM ram = cpu.new RAM();
+        System.out.println("Processor Cache = " + processor.getCache());
+        System.out.println("Ram Clock speed = " + ram.getClockSpeed());
+    }
+}
+```
