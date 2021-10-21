@@ -221,8 +221,8 @@ input = "B19DCCN386";
 String regex = "^[Bb]{1}\\d{2}[A-Za-z]{4}\\d{3}$";
 
 Pattern pattern = Pattern.compile(regex);
-Matcher check = pattern.matcher(input);
-if(check)
+Matcher matcher = pattern.matcher(input);
+if(matcher.find())
   System.out.println("True");
 ```  
   
