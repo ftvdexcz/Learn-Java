@@ -225,6 +225,20 @@ Matcher matcher = pattern.matcher(input);
 if(matcher.find())
   System.out.println("True");
 ```  
+
+Lưu ý 2 cách viết sau
+```
+String text1 = "Hello java regex2-12-2018, hello world 12/12/2018";
+        String regex = "\\d{1,2}[-|/]\\d{1,2}[-|/]\\d{4}";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(text1);
+        
+        if(matcher.find()) 
+            System.out.println("TRUE"); // có in bởi text1 có chứa chuỗi dạng regex. Nếu bắt chặt đk regex = "^\\d{1,2}[-|/]\\d{1,2}[-|/]\\d{4}$" thì giống code dưới
+        
+        if(text1.matches(regex))
+            System.out.println("TRUE"); // không in bởi text1 phải có dạng regex
+```
   
 <h2>Một số class hay sử dụng trong Java</h2>
 <ol>
