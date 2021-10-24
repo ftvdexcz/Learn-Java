@@ -11,6 +11,8 @@ public class Main {
             System.out.println("2.Tìm số điện thoại theo mã vùng");
             System.out.println("3.Liệt kê danh sách số điện thoại");
             System.out.println("4.Tính tổng số điện thoại theo mã vùng");
+            System.out.println("5.Tìm số điện thoại theo đuôi");
+            System.out.println("6.Sắp xếp số điện thoại");
             System.out.println("0.Exit");
             System.out.println("====================================");
             
@@ -30,7 +32,7 @@ public class Main {
                   }while(c != 1 && c != 2);
                   break;
               case 2:
-                  
+                  p.timSDTTheoMaVung();
                   break;
               case 3:
                   System.out.println("3.Liệt kê danh sách số điện thoại");
@@ -50,6 +52,12 @@ public class Main {
                   break;
               case 4:
                   p.tinhTongSDTTheoVung();
+                  break;
+              case 5:
+                  p.timSDTTheoDuoi();
+                  break;
+              case 6:
+                  p.sapXepSDT();
                   break;
               case 0:
                   System.out.println("Exit");
