@@ -9,4 +9,7 @@ public interface ChucNang {
     public void timKiemTheoKhoangGia();
     public void sapXepTheoGia();
     public void ThongKeSoPhuongTienTheoMau();
+    public void timKiemOtoTheoSoCho();
+    public void sua();
+    public void xoa();
 }
