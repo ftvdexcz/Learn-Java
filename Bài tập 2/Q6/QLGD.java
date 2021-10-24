@@ -124,7 +124,13 @@ public class QLGD implements ChucNang {
 
     @Override
     public void hienThiGDTheoNgay() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Nhập ngày cần kiểm tra giao dịch");
+        int ngay = Integer.parseInt(in.nextLine());
+        System.out.println("Các giao dịch trong ngày " + ngay + " là");
+        for(GiaoDich i: list){
+            if(i.getNgay() == ngay)
+                System.out.println(i);
+        }
     }
 
 }
