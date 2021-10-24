@@ -17,11 +17,13 @@ public class Main {
             System.out.println("6.Tìm kiếm theo khoảng giá");
             System.out.println("7.Sắp xếp theo giá");
             System.out.println("8.Thống kê số phương tiện theo màu");
+            System.out.println("9.Tìm kiếm ô tô theo số chỗ");
+            System.out.println("10.Sửa thông tin");
+            System.out.println("11.Xóa");
             System.out.println("0.Exit");
             System.out.println("====================================");
-
+            System.out.println("Nhập lựa chọn (0->11)");
             int luachon = Integer.parseInt(in.nextLine());
-            System.out.println("Nhập lựa chọn (0->8)");
             switch (luachon) {
                 case 1:
                     p.nhapOtO();
@@ -47,12 +49,21 @@ public class Main {
                 case 8:
                     p.ThongKeSoPhuongTienTheoMau();
                     break;
+                case 9:
+                    p.timKiemOtoTheoSoCho();
+                    break;
+                case 10:
+                    p.sua();
+                    break;
+                case 11:
+                    p.xoa();
+                    break;
                 case 0:
                     System.out.println("Exit");
                     System.exit(0);
                     break;
                 default:
-                    System.out.println("Chọn từ 0->8!");
+                    System.out.println("Chọn từ 0->11!");
             }
         }
     }
