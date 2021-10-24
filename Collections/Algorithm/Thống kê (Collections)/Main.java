@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.Comparator;
 
 public class Main {
 
@@ -42,5 +43,9 @@ public class Main {
         for (Integer i: Max.keySet()){
             System.out.println(i + ":" + Max.get(i));
         }
+        
+        // Điểm cao nhất
+        Optional<SinhVien> max = l.stream().collect.(Collectors.maxBy(Comparator.comparing(SinhVien::getDiem)));
+        System.out.println(max.isPresent()?max.get():"DS rong");
     }
 }
