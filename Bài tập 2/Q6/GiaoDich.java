@@ -47,5 +47,10 @@ public class GiaoDich {
     public void setSoLuong(int soLuong) {
         this.soLuong = soLuong;
     }
+    
+    public int getNgay(){
+        String[] time = ngayGiaoDich.split("/");
+        return Integer.parseInt(time[0]);
+    }
 
 }
