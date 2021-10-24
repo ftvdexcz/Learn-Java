@@ -1,6 +1,8 @@
 package Q1;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -25,25 +27,6 @@ public class PhoneBook implements ChucNang{
         
     }
     
-    private PhoneNumber tonTaiMaVung(int maVung){
-        for(PhoneNumber i: list){
-            if(i.getMaVung() == maVung)
-                return i;
-        }
-        return null;
-    }
-        
-    private PhoneNumber tonTaiMaQuocGia(int maQuocGia){
-        for(PhoneNumber i: list){
-            if(i instanceof IntlPhoneNumber){
-                IntlPhoneNumber p = (IntlPhoneNumber) i; // downcasting
-                if(p.getMaQuocGia() == maQuocGia)
-                    return i;
-            }  
-        }
-        return null;
-    }
-  
     @Override
     public void nhapSDT() {
         String regex = "\\d{2,3}";
@@ -82,7 +65,16 @@ public class PhoneBook implements ChucNang{
 
     @Override
     public void timSDTTheoMaVung() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Nhập mã vùng cần tìm");
+        int maVung = Integer.parseInt(in.nextLine());
+        System.out.println("Nhập số điện thoại cần tìm");
+        int sdt = Integer.parseInt(in.nextLine());
+        System.out.println("Các số điện thoại tìm được:");
+        for(PhoneNumber p: list){
+            if(maVung == p.getMaVung() && sdt == p.getNoiVung()){
+                System.out.println(p);
+            }
+        }   
     }
 
     @Override
@@ -113,11 +105,24 @@ public class PhoneBook implements ChucNang{
 
     @Override
     public void timSDTTheoDuoi() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Nhập số cuối số điện thoại cần tìm");
+        String en = in.nextLine();
+        System.out.println("Các số điện thoại tìm được:");
+        for(PhoneNumber p: list){
+            String tmp = String.valueOf(p.getNoiVung());
+            if(tmp.length()-en.length()>=0){
+                tmp = tmp.substring(tmp.length()-en.length(), tmp.length());
+                if(tmp.equals(en)) System.out.println(p);
+            }
+            
+        }
     }
 
     @Override
     public void sapXepSDT() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Comparator<PhoneNumber> sortPhoneNumber = ((PhoneNumber o1,PhoneNumber o2) -> {
+            return o1.getNoiVung()-o2.getNoiVung(); //To change body of generated lambdas, choose Tools | Templates.
+        });
+        Collections.sort(list, sortPhoneNumber);
     }
 }
