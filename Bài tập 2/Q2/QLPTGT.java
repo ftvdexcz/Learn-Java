@@ -191,14 +191,102 @@ public class QLPTGT implements ChucNang {
         Comparator<PTGT> sortByValue = (PTGT o1, PTGT o2) -> {
             return Double.compare(o1.getGia(), o2.getGia()); //To change body of generated lambdas, choose Tools | Templates.
         };
-        
+
         Collections.sort(list, sortByValue);
     }
 
     @Override
     public void ThongKeSoPhuongTienTheoMau() {
         System.out.println("Thống kê số phương tiện theo màu:");
-        Map<String,Long> count = list.stream().collect(Collectors.groupingBy(PTGT::getMau, Collectors.counting()));
+        Map<String, Long> count = list.stream().collect(Collectors.groupingBy(PTGT::getMau, Collectors.counting()));
         System.out.println(count);
+    }
+
+    @Override
+    public void timKiemOtoTheoSoCho() {
+        System.out.println("Nhập số chỗ ô tô cần tìm kiếm");
+        int soCho = Integer.parseInt(in.nextLine());
+        List<Oto> l = new ArrayList<>();
+        for (PTGT p : list) {
+            if (p instanceof Oto) {
+                l.add((Oto) p);
+            }
+        }
+
+        System.out.println("Các ô tô có số chỗ đã nhập:");
+        for (Oto i : l) {
+            if (i.getSoChoNgoi() == soCho) {
+                System.out.println(i);
+            }
+        }
+    }
+
+    @Override
+    public void sua() {
+        String regex = "[A-Z]{2}\\d{3}";
+        String ma;
+        while (true) {
+            System.out.println("Nhập mã");
+            ma = in.nextLine();
+            if (ma.matches(regex)) {
+                break;
+            }
+            System.err.println("Nhập lại mã theo chuẩn!");
+        }
+        PTGT p = tonTaiMa(ma);
+        if (p != null) {
+            System.out.println("Tìm thấy phương tiện với mã " + ma);
+            regex = "[A-Za-z]+";
+            String hangSX;
+            while (true) {
+                System.out.println("Nhập hãng sản xuất");
+                hangSX = in.nextLine();
+                if (hangSX.matches(regex)) {
+                    break;
+                }
+                System.err.println("Nhập lại hãng sản xuất!");
+            }
+
+            regex = "\\d{4}";
+            int namSX;
+            while (true) {
+                System.out.println("Nhập năm sản xuất");
+                namSX = Integer.parseInt(in.nextLine());
+                if (String.valueOf(namSX).matches(regex)) {
+                    break;
+                }
+                System.err.println("Nhập lại hãng sản xuất!");
+            }
+            System.out.println("Nhập giá bán");
+            double gia = Double.parseDouble(in.nextLine());
+            System.out.println("Nhập màu");
+            String mau = in.nextLine();
+            p.setGia(gia);
+            p.setHangSX(hangSX);
+            p.setMau(mau);
+            p.setNamSX(namSX);
+        } else {
+            System.out.println("Không thấy!");
+        }
+    }
+
+    @Override
+    public void xoa() {
+        String regex = "[A-Z]{2}\\d{3}";
+        String ma;
+        while (true) {
+            System.out.println("Nhập mã");
+            ma = in.nextLine();
+            if (ma.matches(regex)) {
+                break;
+            }
+            System.err.println("Nhập lại mã theo chuẩn!");
+        }
+        PTGT p = tonTaiMa(ma);
+        if(p!=null){
+            list.remove(p);
+        }else{
+            System.out.println("Không thấy!");
+        }
     }
 }
