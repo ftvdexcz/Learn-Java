@@ -731,8 +731,16 @@ if (teacher instanceof Student){
    s3.doExam(); // không thực hiện được vì teacher không phải thể hiện của Student 
 }
 ```
+Tham khảo thêm bài viết về upcasting và downcasting: https://gpcoder.com/2406-co-che-upcasting-va-downcasting-trong-java/
+ 
+<h2>Exception</h2>
+<p>Checked Exceptions: Là một ngoại lệ được kiểm tra và thông báo bởi trình biên dịch tại thời điểm biên dịch, chúng cũng có thể được gọi là ngoại lệ thời gian biên dịch (Compile-time Exceptions). Và lập trình viên không thể lường trước.
 
- Tham khảo thêm bài viết về upcasting và downcasting: https://gpcoder.com/2406-co-che-upcasting-va-downcasting-trong-java/
+Ví dụ: Bạn muốn mở một file để đọc nhưng tệp được chỉ định lại không tồn tại. Thì FileNotFoundExeption sẻ xảy ra và trình biên dịch sẽ thông báo tới lập trình viên nhằm xử lý ngoại lệ đó.</p>
+
+<p>Unchecked Exceptions: Là một ngoại lệ không được kiểm tra trong quá trình biên dịch. Chúng cũng được gọi là ngoại lệ thời gian chạy (Runtime Exceptions). Là ngoại lệ có thể tránh được bởi lập trình viên. Unchecked Exceptions kế thừa từ Runtime Exception.
+
+Ví dụ: ArithmaticException, ArrayIndexOutOfBoundsException, NullPointerException,…chúng được kiểm tra tại Runtime.</p>
 
 
 
