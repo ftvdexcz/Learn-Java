@@ -742,8 +742,75 @@ Ví dụ: Bạn muốn mở một file để đọc nhưng tệp được chỉ 
 
 Ví dụ: ArithmaticException, ArrayIndexOutOfBoundsException, NullPointerException,…chúng được kiểm tra tại Runtime.</p>
 
+<h2>Vào ra file</h2>
+<p>Có 2 loại file: file text, file nhị phân. File text: đọc theo kí tự (mỗi kí tự 1 byte, kí tự unicode 2 byte), file nhị phân đọc theo byte</p>
+Tạo ra đối tượng file
 
+```
+String filename = "src/iofile/hanoi.txt";
+File f = new File(filename);
+System.out.println(f.getAbsoluteFile());
+System.out.println(f.getName());
+System.out.println(new Date(f.lastModified()));
+System.out.println(f.length());
+System.out.println(f.exists());
+```
 
+<h4>Đọc file</h4>
+Đọc file bằng FileReader
+
+```
+String filename = "src/iofile/hanoi.txt";
+FileReader r;
+try{
+    r = new FileReader(filename);
+    int k;
+    while(true){
+        k = r.read();
+        if(k==-1) break; // đã đọc hết file
+        char c = (char) k;
+        System.out.print(c);
+    }
+    r.close();
+}catch(FileNotFoundException e){
+    System.out.println(e);
+}catch(IOException e){
+    System.out.println(e);
+}     
+```
+Đọc file bằng BufferedReader
+```
+String filename = "src/iofile/hanoi.txt";
+BufferedReader br;
+try{
+    br = new BufferedReader(new FileReader(filename));
+    String line="";
+    while((line=br.readLine()) != null){
+        System.out.println(line);
+    }
+    br.close();
+}catch(FileNotFoundException e){
+    System.out.println(e);
+}catch(IOException e){
+    System.out.println(e);
+}
+```
+Đọc file bằng Scanner
+```
+String filename = "src/iofile/hanoi.txt";
+File file = new File(filename);
+try {
+    Scanner sc = new Scanner(file);
+    while (sc.hasNextLine()) {
+        String i = sc.nextLine();
+        System.out.println(i);
+    }
+    sc.close();
+} 
+catch (FileNotFoundException e) {
+    e.printStackTrace();
+}
+```
 
 <i>Update: 14/10/2021 00:21</i>
 <hr>
