@@ -756,7 +756,7 @@ System.out.println(f.length());
 System.out.println(f.exists());
 ```
 
-<h4>Đọc file</h4>
+<h4>1.Đọc file</h4>
 Đọc file bằng FileReader
 
 ```
@@ -812,7 +812,7 @@ catch (FileNotFoundException e) {
 }
 
 ```
-<h4>Ghi file</h4>
+<h4>2.Ghi file</h4>
 
 Ghi file bằng PrintWriter
 ```
@@ -825,6 +825,39 @@ try{
 }catch(FileNotFoundException e){
     System.out.println(e);
 }        
+```
+
+<h4>3.Đọc và ghi object</h4>
+<p>Đọc ghi dưới dạng file binary, ghi và đọc theo cùng 1 cách</p>
+<p>Đọc ghi bằng ObjectOutputStream, FileInputStream, ObjectOutputStream, FileOutputStream</p>
+
+Đọc file 
+```
+public static <T> List<T> doc(String file){
+    List<T> list = new ArrayList<>();
+    try{
+        ObjectInputStream o = new ObjectInputStream(new FileInputStream(file));
+        list = (List<T>) o.readObject();
+        o.close();
+    }catch(IOException e){
+        System.out.println(e);
+    }catch(ClassNotFoundException e){
+        System.out.println(e);
+    }
+    return list;
+}
+```
+Ghi file 
+```
+public static <T> void viet(String file, List<T> arr){
+    try{
+        ObjectOutputStream o = new ObjectOutputStream(new FileOutputStream(file));
+        o.writeObject(arr);
+        o.close();
+    }catch(IOException e){
+        System.out.println(e);
+    }
+}
 ```
 
 <i>Update: 14/10/2021 00:21</i>
