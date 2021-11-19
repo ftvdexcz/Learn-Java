@@ -860,7 +860,7 @@ public static <T> void viet(String file, List<T> arr){
 }
 ```
 
-<i>Update: 14/10/2021 00:21</i>
+<i>Update: 19/11/2021</i>
 <hr>
 Tham khảo: <br>
 1. https://data-flair.training/blogs/java-tutorial/ <br>
