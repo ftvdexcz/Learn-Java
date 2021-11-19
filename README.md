@@ -810,6 +810,21 @@ try {
 catch (FileNotFoundException e) {
     e.printStackTrace();
 }
+
+```
+<h4>Ghi file</h4>
+
+Ghi file bằng PrintWriter
+```
+String fout="src/demo/out.txt";
+PrintWriter p;
+try{
+    p = new PrintWriter(fout);
+    p.print("Tong:"+sum);
+    p.close();
+}catch(FileNotFoundException e){
+    System.out.println(e);
+}        
 ```
 
 <i>Update: 14/10/2021 00:21</i>
