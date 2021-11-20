@@ -860,6 +860,8 @@ public static <T> void viet(String file, List<T> arr){
 }
 ```
 
+<h2>Thread</h2>
+
 <i>Update: 19/11/2021</i>
 <hr>
 Tham khảo: <br>
