@@ -876,8 +876,10 @@ public class Main {
     }
 }
 ```
+
 <p>Có 2 cách tạo ra 1 lớp thread: extends Thread, implements Runnable (ghi đè phương thức run(), nhưng khi chạy gọi hàm start())</p>
 Cách 1: extends Thread
+
 ```
 public class ThreadDemo extends Thread{
     public ThreadDemo(String name) {
@@ -945,6 +947,7 @@ public class Bai1 {
 }
 ```
 <p>Daemon Thread: luồng chạy ngầm, kết thúc khi các luồng khác kết thúc</p>
+
 ```
 /*Cài đặt daemon thread như bình thường, khi khởi tạo luồng thì gọi phương thức setDaemon(true)*/
 public class DaemonThread extends Thread{
@@ -966,6 +969,7 @@ tt.setDaemon(true); // daemon thread
 tt.start();
 ```
 <p>join(): Dừng tất cả luồng khác để thread đó thực hiện</p>
+
 ```
 public class Main {
     public static void main(String[] args) {
