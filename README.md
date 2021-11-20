@@ -862,6 +862,131 @@ public static <T> void viet(String file, List<T> arr){
 
 <h2>Thread</h2>
 
+<p>Nếu chưa có thread nào thì main mặc định là 1 thread</p>
+
+```
+public class Main {
+    public static void main(String[] args) {
+    Thread t = Thread.currentThread(); // bản thân main cũng là 1 luồng
+    System.out.println(t.getName() + " START"); // main
+    System.out.println(t.getPriority()); // 5: mặc định
+    System.out.println(t.getState()); // RUNNABLE
+    t.setPriority(1);
+    System.out.println(t.getPriority());
+    }
+}
+```
+<p>Có 2 cách tạo ra 1 lớp thread: extends Thread, implements Runnable (ghi đè phương thức run(), nhưng khi chạy gọi hàm start())</p>
+Cách 1: extends Thread
+```
+public class ThreadDemo extends Thread{
+    public ThreadDemo(String name) {
+        super(name);
+    }
+    
+    @Override
+    public void run(){
+        System.out.println(getName() + " START");
+        for (int i = 0; i < 5; i++) {
+            System.out.println(getName() + " " + i);
+            try{
+                sleep(1000); // 1s
+            }catch(InterruptedException e){
+                System.out.println(e);
+            }
+        }
+        System.out.println(getName() + " STOP");
+    }
+}
+```
+Cách 2: implements Runnable
+```
+public class RunnableDemo implements Runnable{
+    private String name; 
+    
+    @Override
+    public void run() {
+        System.out.println(name + " START");
+        for (int i = 0; i < 5; i++) {
+            System.out.println(name + " " + i);
+            try{
+                Thread.sleep(1500); // 1.5s
+            }catch(InterruptedException e){
+                System.out.println(e);
+            }
+        }
+        System.out.println(name + " STOP");
+    }
+
+    public RunnableDemo(String name) {
+        this.name = name;
+    }
+}
+```
+Có thể cài đặt Thread bằng anonymous class 
+```
+public class Bai1 {
+    public static void main(String[] args) {
+        Thread t = new Thread(){ // anonymous class kế thừa Thread class
+            public void run(){
+                SimpleDateFormat f = new SimpleDateFormat("hh:mm:ss");
+                while(true){
+                    System.out.println("\33[31m"+f.format(new Date()));
+                    try{
+                        sleep(1000);
+                    }catch(InterruptedException e){
+                        System.out.println(e);
+                    }
+                }
+            }
+        };
+        t.start();
+    }
+}
+```
+<p>Daemon Thread: luồng chạy ngầm, kết thúc khi các luồng khác kết thúc</p>
+```
+/*Cài đặt daemon thread như bình thường, khi khởi tạo luồng thì gọi phương thức setDaemon(true)*/
+public class DaemonThread extends Thread{
+    public void run(){
+        int i=0;
+        while(true){
+            System.out.println("Num:"+i++);
+            try{
+                sleep(500);
+            }catch(InterruptedException e){
+                System.out.println(e);
+            }
+        }
+    }
+}
+
+DaemonThread tt = new DaemonThread();
+tt.setDaemon(true); // daemon thread
+tt.start();
+```
+<p>join(): Dừng tất cả luồng khác để thread đó thực hiện</p>
+```
+public class Main {
+    public static void main(String[] args) {
+        Thread1 t1 = new Thread1();
+        t1.start();
+        try{
+            t1.join(); // chạy thread t1 trước, tránh xung đột vì t1, t2 cùng gọi 1 phương thức khác 
+        }catch(InterruptedException e){
+            System.out.println(e);
+        }
+        Thread1 t2 = new Thread1();
+        t2.start();
+        System.out.println(t1.getState()); // terminated
+        System.out.println(t2.getState()); // terminated
+    }
+}
+```
+<p>synchronized: đồng bộ</p>
+Xem trong folder Thread/bank
+
+
 <i>Update: 19/11/2021</i>
 <hr>
 Tham khảo: <br>
